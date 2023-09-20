@@ -1,0 +1,17 @@
+body{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #4e555b;
+}
+
+.pad{
+    margin: 2em 0 2em 0;
+}
+
+.fonts{
+    font-family: 'Inclusive Sans', sans-serif;
+}
