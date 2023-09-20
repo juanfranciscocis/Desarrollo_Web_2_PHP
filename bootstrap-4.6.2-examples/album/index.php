@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 	//DEFINO ARREGLO
 	$estudiantes = array("Juan Francisco", "Maria Fernanda", "Pedro Jose", "Ana Maria", "Jose Francisco", "Maria Jose", "Pedro Francisco", "Juanito");
 	//DEFINO ARREGLO ASOCIATIVO
