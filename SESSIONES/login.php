@@ -20,7 +20,7 @@
 				$password = $_POST['password'];
 			}
 			//validar usuario y password
-			if($user == "abc" && $password == "123"){
+ 			if($user == "abc" && $password == "123"){
 				//guardar las variables de session
 				$_SESSION["autenticado"] = true;
 				$autenticado = true;
