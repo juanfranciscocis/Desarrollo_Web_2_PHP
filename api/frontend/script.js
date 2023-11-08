@@ -13,6 +13,7 @@ const getData = async (url) => {
 
 
 const cargarDatos = (posts) => {
+    //ELIMINAR TABLA
     console.log(posts);
     posts.forEach((post) => {
         const {id_publicacion, titulo,contenido,autor,fecha_creacion} = post;
