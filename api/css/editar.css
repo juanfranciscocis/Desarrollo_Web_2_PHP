@@ -14,7 +14,6 @@ footer {
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
-
 a.button {
     display: inline-block;
     padding: 10px 20px;
@@ -32,30 +31,26 @@ a.button:hover {
 }
 
 
-
-
-
-.customCard{
-    margin: 100px;
+.card{
+    color: white;
+    margin: auto;
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
     transition: all 0.3s ease-in-out;
     background-color: rgb(148, 148, 148);
 }
 
-.customCard:hover{
+.card:hover{
     transform: scale(1.05);
     box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
-td{
-    text-align: center;
+
+button{
+    background-color: #ffe100 !important;
     color: white;
-}
-
-
-
-
-table tr:hover td {
-    background-color: #808080;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    /* no border */
+    border: none;
 }

@@ -14,48 +14,32 @@ footer {
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
 
-
-a.button {
-    display: inline-block;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    background-color: #6c6c6c;
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-}
-
-a.button:hover {
-    background-color: #6ea84f;
-}
-
-
-
-
-
-.customCard{
+main{
     margin: 100px;
+
+}
+
+.card{
+    /* center */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    margin: auto;
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
     transition: all 0.3s ease-in-out;
     background-color: rgb(148, 148, 148);
 }
 
-.customCard:hover{
+.card:hover{
     transform: scale(1.05);
     box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
-td{
+.card-header{
+    /* center the text */
     text-align: center;
-    color: white;
-}
 
-
-
-
-table tr:hover td {
-    background-color: #808080;
 }

@@ -20,11 +20,24 @@ const cargarDatos = (post) => {
     const contenedorPost = document.createElement('div');
     const {id_publicacion, titulo,contenido,autor,fecha_creacion} = post;
     contenedorPost.innerHTML = `
-        <p>${id_publicacion}</p>
-        <h2>${titulo}</h2>
-        <p>${contenido}</p>
-        <p>${autor}</p>
-        <p>${fecha_creacion}</p>
+        <div class="card h-100 m-5 customCard">
+            <div class="card-header w-100">
+                <h1>${titulo}</h1>
+                <h3>ID: ${id}</h3>
+            </div>
+            <div class="card-body">
+                <h3>Autor: ${autor}</h3>
+            </div>
+            <div class="card-body">
+                <p>${contenido}</p>
+            </div>
+             <div class="card-footer">
+                <p>${fecha_creacion}</p>
+             </div>
+           
+            </div>
+        </div>
+
     `;
     main.appendChild(contenedorPost);
 }

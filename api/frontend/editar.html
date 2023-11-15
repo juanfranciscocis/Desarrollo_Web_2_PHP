@@ -4,22 +4,48 @@
 	<meta charset="UTF-8">
 	<title>CREAR NUEVA PUBLICACION</title>
 	<script src="./script_editar.js" defer></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="../css/editar.css">
+	
 
 </head>
-<body>
-	<header>
-		<h1>Crea una nueva publicacion</h1>
+<body class="bg-info">
+	<header class="bg-dark text-white text-center p-3">
+		<br>
+		<h1 class="display-4">Edita la publicación</h1>
+		<br>
+		<p class="lead"><a href="index.html" class="text-white button">Regresar a la tabla principal</a></p>
 	</header>
 	<main id="main">
-		<form method="post" id="form">
-			<input type="text" name="titulo" id="titulo" placeholder="Titulo"><br>
-			<input name="contenido" id="contenido" placeholder="Contenido"><br>
-			<input type="text" name="autor" id="autor" placeholder="Autor"><br>
-			<input type='submit' value='Crear'>
-		</form>
-		<h2><a href="index.html" id="volver">Volver a la lista de publicaciones</a></h2>
+		<div class="card h-100 m-5 customCard">
+			<div class="card-body">
+				<form method="post" id="form">
+					<div class="form-group">
+						<label for="titulo">Título</label>
+						<input type="text" class="form-control" name="titulo" id="titulo"
+						       placeholder="Ingresa el título de la publicación">
+					</div>
+
+					<div class="form-group">
+						<label for="contenido">Contenido</label>
+						<textarea class="form-control" name="contenido" id="contenido" rows="3"
+						          placeholder="Ingresa el contenido de la publicación"></textarea>
+
+					</div>
+
+					<div class="form-group">
+						<label for="autor">Autor</label>
+						<input type="text" class="form-control" name="autor" id="autor" placeholder="Ingresa el nombre del
+						autor de la publicación">
+
+					</div>
+					<button type="submit" class="btn btn-warning" style="width: 100%;">Editar<a href="index.html"></a></button>
+				</form>
+			</div>
+		</div>
 	</main>
-	<footer>
+	<footer class="bg-dark text-white text-center p-2 mt-5">
 		<p>USFQ-Desarrollo Web 2</p>
 	</footer>
 

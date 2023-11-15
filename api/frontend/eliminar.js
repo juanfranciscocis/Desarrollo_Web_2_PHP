@@ -9,9 +9,22 @@ const main = document.getElementById("main");
 
 const confirmar = (id) => {
     main.innerHTML = `
-        <h2>¿Estás seguro de eliminar el registro ${id}?</h2>
-        <h3><a href="#" onclick="eliminarPost(${id})">Sí</a></h3>
-        <h3><a href="index.html">No</a></h3>
+        <div class="card h-100 m-5 customCard">
+            <div class="card-header w-100">
+                <h1>¿Estás seguro de eliminar este post?</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-success btn-block" onclick="eliminarPost(${id})">Confirmar</button>
+                    </div>
+                    <div class="col">
+                        <a href="index.html" class="btn btn-danger btn-block">Cancelar</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
     `;
 }
 
