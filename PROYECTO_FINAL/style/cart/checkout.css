@@ -1,0 +1,42 @@
+
+.price{
+    padding: 1em;
+    font-size: 1.5em;
+}
+
+.checkout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 0px 20px 0px 20px;
+    background-color: #569f66;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,1);
+    width: 80%;
+    color: white;
+
+}
+
+.direction{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+}
+
+label{
+    margin: 0.2em;
+    font : 1em sans-serif;
+}
+
+input{
+    margin: 0.2em;
+    font : 1.5em sans-serif;
+    border-radius: 5px;
+    border: 1px solid #569f96;
+    padding: 0.2em;
+}

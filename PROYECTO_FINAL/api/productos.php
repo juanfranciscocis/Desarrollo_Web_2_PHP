@@ -20,6 +20,7 @@ $db = new Database();
 $conexion = $db->conectar();
 $id_producto = '';
 $categoria = '';
+$search = '';
 
 if (isset($_GET['id'])) {
     $id_producto = $_GET['id'];
@@ -28,11 +29,17 @@ if (isset($_GET['cat'])) {
     $categoria = $_GET['cat'];
 }
 
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+}
+
 try {
     if (is_numeric($id_producto)) {
         $sql = "SELECT * FROM producto WHERE id_producto = " . $id_producto;
     } elseif (is_numeric($categoria)) {
         $sql = "SELECT * FROM producto WHERE id_categoria = " . $categoria;
+    } elseif($search != ''){
+        $sql = "SELECT * FROM producto WHERE nombre LIKE '%" . $search . "%'";
     }
     else {
         $sql = "SELECT * FROM producto";

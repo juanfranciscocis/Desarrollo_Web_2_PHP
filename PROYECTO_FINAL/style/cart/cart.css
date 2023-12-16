@@ -51,3 +51,27 @@ section{
 .free{
     color: green;
 }
+
+
+.summary{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 16px;
+    font: 1em sans-serif;
+    background-color: white;
+}
+
+.total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font: 1em sans-serif;
+    background-color: white;
+    width: 100%;
+}
+
+
+

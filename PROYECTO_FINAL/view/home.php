@@ -1,12 +1,52 @@
 <?php
 
-	//make api call to get all products
-	$url = 'http://localhost/Desarrollo_Web_2_PHP/PROYECTO_FINAL/api/productos.php';
-	$ch = curl_init($url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	$response = curl_exec($ch);
-	curl_close($ch);
-	$data = json_decode($response, true);
+//make api call to get all products
+$url = 'http://localhost/Desarrollo_Web_2_PHP/PROYECTO_FINAL/api/productos.php';
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
+$data = json_decode($response, true);
+
+
+// js scripts
+echo '<script >
+function goHome(){
+	window.location.href = "/Desarrollo_Web_2_PHP/PROYECTO_FINAL/";
+}
+
+function goToCart(){
+	window.location.href = "/Desarrollo_Web_2_PHP/PROYECTO_FINAL/view/cart.php";
+}
+</script>';
+
+
+echo '<script>
+window.onload = function() {
+    const search = document.getElementById("search");
+    search.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            // Perform search
+           // API call
+            fetch("http://localhost/Desarrollo_Web_2_PHP/PROYECTO_FINAL/api/productos.php?search=" + search.value)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // redirect to product page
+                    window.location.href = "view/product.php?id=" + data.message[0].id_producto;
+                })
+                .catch(error => console.error(`Error:`, error));
+        
+        }
+    });
+}
+
+</script>';
+
+
+
+
 
 
 
@@ -27,10 +67,10 @@
 		<div class="burger">
 			<img src="images/home/header/icon-control-menu.png" alt="">
 		</div>
-		<div class="logo">
+		<div class="logo" onclick="goHome()">
 			<img src="images/home/header/logo.png" alt="">
 		</div>
-		<div class="cart">
+		<div class="cart" onclick="goToCart()">
 			<img src="images/home/header/icon-shopping-cart.png" alt="">
 		</div>
 		<div class="person">
@@ -40,7 +80,7 @@
 	<div>
 		<div class="search">
 			<label class="search-label">
-				<input class="search-input" type="text" placeholder="🔎    Search">
+				<input class="search-input" type="text" placeholder="🔎    Search" id="search">
 			</label>
 		</div>
 	</div>
@@ -49,11 +89,11 @@
 <div class="content">
 
 
-<?php
-	//Dynamic content based on the amount of products from the api
-	$products = count($data['message']);
+    <?php
+    //Dynamic content based on the amount of products from the api
+    $products = count($data['message']);
 
-	for ($i=0; $i< $products; $i++) {
+    for ($i=0; $i< $products; $i++) {
         echo '<section id=' . $data['message'][$i]['id_producto'] . '>
 		<div class="product">
 			<div class="img-product">
@@ -76,7 +116,7 @@
     }
 
 
-?>
+    ?>
 
 
 
@@ -84,4 +124,3 @@
 </div>
 </body>
 </html>
-

@@ -34,8 +34,14 @@
 	</script>';
 
 	echo '<script>
+		function goToCart(){
+			window.location.href = "../view/cart.php";
+		}
+	</script>';
+
+	echo '<script>
 		function addToCart(id){
-			window.location.href = "../controller/cart.php?id=" + id;
+			window.location.href = "../controller/add_to_cart_controller.php?id=" + id;
 		}
 	</script>';
 
@@ -72,7 +78,7 @@
 		<div class="burger" onclick="goHome()">
 			<img src="../images/product/header/icon-return.png" alt="">
 		</div>
-		<div class="cart">
+		<div class="cart " onclick="goToCart()">
 			<img src="../images/product/header/icon-shopping-cart.png" alt="">
 		</div>
 		<div class="person">
