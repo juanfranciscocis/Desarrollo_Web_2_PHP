@@ -1,28 +1,44 @@
 <?php
 	session_start();
+	function session($usuario){
+        $session = rand(100000, 999999);
+        $_SESSION["session"] = $session;
+        setcookie("session", $session, time() + (86400 * 30));
+
+        //create cart
+        $url = 'http://localhost/Desarrollo_Web_2_PHP/PROYECTO_FINAL/api/crear_carrito.php?id_sesion=' . $session . '&id=' . $usuario;
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $data = json_decode($response, true);
+
+		//set id_sesion
+		$_SESSION["id_sesion"] = $data['id_sesion'];
+
+
+
+        //echo response
+        echo '<script>console.log(' . $data . ')</script>';
+    }
+
 	//start cookies
-	$_SESSION["usuario"] =1;
+	$usuario = "";
+	$session = "";
 	if (isset($_SESSION["usuario"])) {
 		$usuario = $_SESSION["usuario"];
-		if (isset($_SESSION["session"])){
-			$session = $_SESSION["session"];
+		if (isset($_SESSION["session"] )) {
+			if ($_SESSION["session"] != "") {
+                $session = $_SESSION["session"];
+            }else{
+				session($usuario);
+			}
 		}else{
-			$session = rand(100000, 999999);
-            $_SESSION["session"] = $session;
-			setcookie("session", $session, time() + (86400 * 30));
-
-			//create cart
-			$url = 'http://localhost/Desarrollo_Web_2_PHP/PROYECTO_FINAL/api/crear_carrito.php?id_sesion=' . $session . '&id=' . $usuario;
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			$response = curl_exec($ch);
-			curl_close($ch);
-			$data = json_decode($response, true);
-			//echo response
-			echo '<script>console.log(' . $data['message'] . ')</script>';
+			session($usuario);
 		}
 	}   else{
 		//redirect login
+		debug_to_console($_SESSION["usuario"]);
 		header("Location: ../view/login.php");
 	}
 
@@ -48,6 +64,7 @@
 
 
 
+
 	$id = $_GET['id'];
 	//Dynamic content based on the amount of products from the api
 	//Api call
@@ -57,6 +74,13 @@
 	$response = curl_exec($ch);
 	curl_close($ch);
 	$data = json_decode($response, true);
+
+function debug_to_console($data) {
+    echo "<pre>";
+    var_dump($data);
+    echo "</pre>";
+}
+
 
 
 

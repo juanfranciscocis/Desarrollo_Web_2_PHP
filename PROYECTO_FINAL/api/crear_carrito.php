@@ -38,12 +38,26 @@ try {
 
 
         if ($query->execute()) {
-            http_response_code(201);
-            echo json_encode([
-                'success' => 1,
-                'message' => 'El registro fue creado exitosamente.'
-            ]);
-            exit;
+            // get id_sesion
+            $sql = "SELECT id_sesion FROM sesion WHERE session_id = :id_sesion";
+            $query = $conexion->prepare($sql);
+            $query->bindValue(':id_sesion', $id_sesion, PDO::PARAM_STR);
+            if ($query->execute()){
+                $id_sesion = $query->fetch(PDO::FETCH_ASSOC)['id_sesion'];
+                http_response_code(201);
+                echo json_encode([
+                    'success' => 1,
+                    'message' => 'El registro fue creado exitosamente.',
+                    'id_sesion' => $id_sesion
+                ]);
+                exit;
+            }else{
+                echo json_encode([
+                    'success' => 0,
+                    'message' => 'Ocurrió un error. Los datos no fueron guardados.'
+                ]);
+                exit;
+            }
         } else {
             echo json_encode([
                 'success' => 0,

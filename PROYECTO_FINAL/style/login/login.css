@@ -1,8 +1,0 @@
-#login-view {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-out;
-}
-
-#login-view.show {
-    transform: translateX(0);
-}

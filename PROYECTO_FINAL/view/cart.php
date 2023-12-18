@@ -99,9 +99,6 @@
 		<div class="burger" onclick="goHome()">
 			<img src="../images/cart/header/icon-return.png" alt="">
 		</div>
-		<div class="person">
-			<img src="../images/cart/header/icon-control-person.png" alt="">
-		</div>
 	</div>
 </div>
 <div class="content">

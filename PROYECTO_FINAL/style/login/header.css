@@ -1,0 +1,35 @@
+
+body{
+    background-color: #F7FAFC;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.header-div{
+    background-color: white;
+    width: 100%;
+
+}
+
+.header-1{
+    background-color: #FFF;
+    margin: 16px;
+    display: flex;
+    justify-content: space-between;
+    height: 3em;
+}
+
+.burger {
+    margin: auto 0;
+
+}
+
+.cart {
+    margin: auto 0;
+}
+
+.person {
+    margin: auto 0;
+}
+

@@ -18,8 +18,12 @@ function goHome(){
 function goToCart(){
 	window.location.href = "/Desarrollo_Web_2_PHP/PROYECTO_FINAL/view/cart.php";
 }
-</script>';
 
+function goToLogin(){
+	window.location.href = "/Desarrollo_Web_2_PHP/PROYECTO_FINAL/view/login.php";
+}
+
+</script>';
 
 echo '<script>
 window.onload = function() {
@@ -50,6 +54,7 @@ window.onload = function() {
 
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +69,7 @@ window.onload = function() {
 <body>
 <div class="header-div">
 	<div class="header-1">
-		<div class="burger">
+		<div class="burger" id="burger" onclick="goToLogin()">
 			<img src="images/home/header/icon-control-menu.png" alt="">
 		</div>
 		<div class="logo" onclick="goHome()">
@@ -73,7 +78,7 @@ window.onload = function() {
 		<div class="cart" onclick="goToCart()">
 			<img src="images/home/header/icon-shopping-cart.png" alt="">
 		</div>
-		<div class="person">
+		<div class="person" onclick="goToLogin()">
 			<img src="images/home/header/icon-control-person.png" alt="">
 		</div>
 	</div>

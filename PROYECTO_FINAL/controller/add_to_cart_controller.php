@@ -28,6 +28,7 @@ function debug_to_console($data) {
     $data = json_decode($response, true);
      debug_to_console($data['id_sesion']);
      $_SESSION['id_sesion'] = $data['id_sesion'];
+     debug_to_console($_SESSION['id_sesion']);
 
 
 
