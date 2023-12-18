@@ -20,7 +20,6 @@ $db = new Database();
 $conexion = $db->conectar();
 $id_sesion = '';
 $id_producto = '';
-$cantidad = '';
 
 if (isset($_GET['id'])) {
     $id_sesion = $_GET['id'];
@@ -28,59 +27,49 @@ if (isset($_GET['id'])) {
 if (isset($_GET['id_producto'])) {
     $id_producto = $_GET['id_producto'];
 }
-if (isset($_GET['c'])) {
-    $cantidad = $_GET['c'];
-}else{
-    $cantidad = 1;
+
+
+if (!isset($_GET['id']) && !isset($_GET['id_producto'])) {
+    echo json_encode([
+        'success' => 0,
+        'message' => 'Se debe enviar el id de sesión y el id del producto para eliminarlo del carrito'
+    ]);
+    exit;
 }
 
-
 try {
-
-    if(isset($id_sesion)){
-        $sql = "SELECT * FROM sesion WHERE session_id = :id_sesion";
+    $sql = "SELECT * FROM item_sesion WHERE id_sesion = :id AND id_producto = :id_producto";
+    $query = $conexion->prepare($sql);
+    $query->bindValue(':id', $id_sesion, PDO::PARAM_INT);
+    $query->bindValue(':id_producto', $id_producto, PDO::PARAM_INT);
+    $query->execute();
+    if ($query->rowCount() > 0) {
+        //delete only one item
+        $sql = "DELETE FROM item_sesion WHERE id_sesion = :id AND id_producto = :id_producto LIMIT 1";
         $query = $conexion->prepare($sql);
-        $query->bindValue(':id_sesion', $id_sesion, PDO::PARAM_STR);
-        $query->execute();
-        $sesion = $query->fetch(PDO::FETCH_ASSOC);
-        if ($sesion === false) {
-            echo json_encode([
-                'success' => 0,
-                'message' => 'No se encontraron registros'
-            ]);
-            exit;
-        }
-    }
-
-    if (isset($sesion) && isset($id_producto) && isset($cantidad)) {
-        $sql = "INSERT INTO item_sesion (id_sesion, id_producto, cantidad) VALUES (:id_sesion, :id_producto, :cantidad)";
-        $query = $conexion->prepare($sql);
-        $query->bindValue(':id_sesion', $sesion['id_sesion'], PDO::PARAM_INT);
+        $query->bindValue(':id', $id_sesion, PDO::PARAM_INT);
         $query->bindValue(':id_producto', $id_producto, PDO::PARAM_INT);
-        $query->bindValue(':cantidad', $cantidad, PDO::PARAM_INT);
         if ($query->execute()) {
-            http_response_code(201);
+            http_response_code(200);
             echo json_encode([
                 'success' => 1,
-                'message' => 'Se agregó el producto al carrito',
-                'id_sesion' => $sesion['id_sesion'],
+                'message' => 'El registro fue eliminado exitosamente'
             ]);
             exit;
         } else {
             echo json_encode([
                 'success' => 0,
-                'message' => 'Ocurrió un error. Los datos no fueron guardados.'
+                'message' => 'Ocurrió un error. El registro no fue eliminado.'
             ]);
             exit;
         }
     } else {
         echo json_encode([
             'success' => 0,
-            'message' => 'Se debe enviar los datos: id_sesion, id_producto y cantidad.'
+            'message' => 'No se encontro un item con el id de sesion y el id del producto enviados'
         ]);
         exit;
     }
-
 
 } catch (PDOException $e) {
     http_response_code(500);

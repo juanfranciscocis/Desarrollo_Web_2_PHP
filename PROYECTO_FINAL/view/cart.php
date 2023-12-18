@@ -108,7 +108,7 @@
     //Dynamic content based on the amount of products from the api $data
     $products = count($data['message']);
     for ($i=0; $i< $products; $i++) {
-        echo '<section>
+        echo '<section id= "' . $i . '">
 		<div class="product">
 			<div class="img-product">
 				<img src="../' . $data['message'][$i]['img_principal'] . '" alt="">
@@ -121,7 +121,29 @@
 		</div>
 		</section>
 		<br>';
-    }
+		//on click remove from cart
+        		echo '<script>
+							//on click remove from cart
+							document.getElementById("' . $i . '").addEventListener("click", function(){
+								//api call
+								const url = "http://localhost/Desarrollo_Web_2_PHP/PROYECTO_FINAL/api/eliminar_item.php?id_producto=' . $data['message'][$i]['id_producto'] . '&id=' . $id_sesion . '";
+								console.log(url);
+								const xhttp = new XMLHttpRequest();
+								xhttp.open("GET", url, true);
+								xhttp.send();
+								
+								//reload page
+								xhttp.onreadystatechange = function() {
+									if (this.readyState == 4 && this.status == 200) {
+										window.location.reload();
+									}
+								};
+								
+							});
+							
+						</script>';
+					}
+
     ?>
 </div>
 
