@@ -43,7 +43,22 @@
 			const lastname = document.getElementById("lastname-register").value;
 			const email = document.getElementById("email-register").value;
 			const password = document.getElementById("password-register").value;
-			window.location.href = "../controller/register_controller.php?name=" + name + "&lastname=" + lastname + "&email=" + email + "&password=" + password;
+			const phone = document.getElementById("phone-register").value;
+			//post data
+			const data = {usuario: email, password: password, nombre: name, apellido: lastname, telefono: phone};
+			fetch("http://localhost/Desarrollo_Web_2_PHP/PROYECTO_FINAL/api/crear_usuario.php", {
+				method: "POST",
+				body: JSON.stringify(data),
+				headers: {"Content-type": "application/json; charset=UTF-8"}
+			}).then(response => response.json())
+			.then(data => {
+				console.log(data);
+				if(data.success == 1){
+					alert("Usuario creado exitosamente, por favor inicie sesión");
+				}else{
+					alert("Ocurrió un error, por favor intente de nuevo");
+				}
+			})
 		}
 	</script>';
 
@@ -107,6 +122,9 @@
 			</label>
 			<label for="password-register">
 			<input type="password" name="password-register" id="password-register" placeholder="Password">
+			</label>
+			<label for="phone-register">
+			<input type="text" name="phone-register" id="phone-register" placeholder="Phone">
 			</label>
 		</div>
 		<div class="reg">

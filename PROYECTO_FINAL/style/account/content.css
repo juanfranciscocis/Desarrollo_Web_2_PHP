@@ -1,0 +1,82 @@
+.login-logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font: 2em sans-serif;
+    margin: 0.5em;
+}
+
+
+
+
+
+
+.login-div, .register-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-div1{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+label{
+    margin: 0.2em;
+    font : 1em sans-serif;
+}
+
+input{
+    margin: 0.2em;
+    font : 1.5em sans-serif;
+    border-radius: 5px;
+    border: 1px solid #569f96;
+    padding: 0.2em;
+}
+
+.small{
+    width: 40%;
+}
+
+.small-inpl{
+    width: 100%;
+}
+
+
+
+.log, .reg{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: last baseline;
+}
+
+.login-button , .register-button{
+    width: 30%;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    margin: 2em;
+    align-items: center;
+    background-color: #c02525;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+h2{
+    font: 1.5em sans-serif;
+    color: white;
+}
+
+

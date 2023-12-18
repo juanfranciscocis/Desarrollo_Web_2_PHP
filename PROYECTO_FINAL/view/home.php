@@ -23,6 +23,10 @@ function goToLogin(){
 	window.location.href = "/Desarrollo_Web_2_PHP/PROYECTO_FINAL/view/login.php";
 }
 
+function goToAccount(){
+	window.location.href = "/Desarrollo_Web_2_PHP/PROYECTO_FINAL/view/account.php";
+}
+
 </script>';
 
 echo '<script>
@@ -78,7 +82,7 @@ window.onload = function() {
 		<div class="cart" onclick="goToCart()">
 			<img src="images/home/header/icon-shopping-cart.png" alt="">
 		</div>
-		<div class="person" onclick="goToLogin()">
+		<div class="person" onclick="goToAccount()">
 			<img src="images/home/header/icon-control-person.png" alt="">
 		</div>
 	</div>

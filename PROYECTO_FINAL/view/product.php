@@ -105,9 +105,6 @@ function debug_to_console($data) {
 		<div class="cart " onclick="goToCart()">
 			<img src="../images/product/header/icon-shopping-cart.png" alt="">
 		</div>
-		<div class="person">
-			<img src="../images/product/header/icon-control-person.png" alt="">
-		</div>
 	</div>
 </div>
 
