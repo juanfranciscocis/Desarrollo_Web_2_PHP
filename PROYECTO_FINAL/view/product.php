@@ -109,7 +109,7 @@ function debug_to_console($data) {
 </div>
 
 <div class="imagen-producto">
-	<img class="imagen" src="../<?php echo $data['message']['img_principal'] ?>" alt="">
+	<img class="imagen" src="../<?php echo $data['message']['img_secundaria'] ?>" alt="">
 </div>
 
 <div class="descrip-card">

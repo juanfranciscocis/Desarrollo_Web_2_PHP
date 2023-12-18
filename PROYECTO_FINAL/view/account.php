@@ -86,7 +86,7 @@ function debug_to_console($data) {
         <img src="../images/login/content/logo.png" alt="">
     </div>
     <div class="register">
-        <h1>Register</h1>
+        <h1>Account</h1>
         <div class="register-div1">
             <label for="name-register" class="small">
                 <input type="text" name="name-register" id="name-register" placeholder="Name" class="small-inpl">
