@@ -89,21 +89,21 @@ function debug_to_console($data) {
         <h1>Account</h1>
         <div class="register-div1">
             <label for="name-register" class="small">
-                <input type="text" name="name-register" id="name-register" placeholder="Name" class="small-inpl">
+                <input type="text" name="name-register" id="name-register" placeholder="Name" class="small-inpl" disabled>
             </label>
             <label for="lastname-register" class="small">
-                <input type="text" name="lastname-register" id="lastname-register" placeholder="Lastname" class="small-inpl">
+                <input type="text" name="lastname-register" id="lastname-register" placeholder="Lastname" class="small-inpl" disabled>
             </label>
         </div>
         <div class="register-div">
             <label for="email-register">
-                <input type="text" name="email-register" id="email-register" placeholder="Email">
+                <input type="text" name="email-register" id="email-register" placeholder="Email" disabled>
             </label>
             <label for="password-register">
-                <input type="password" name="password-register" id="password-register" placeholder="Password">
+                <input type="text" name="password-register" id="password-register" placeholder="Password" disabled>
             </label>
             <label for="phone-register">
-                <input type="text" name="phone-register" id="phone-register" placeholder="Phone">
+                <input type="text" name="phone-register" id="phone-register" placeholder="Phone" disabled>
             </label>
         </div>
         <div class="reg">

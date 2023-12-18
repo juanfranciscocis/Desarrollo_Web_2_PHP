@@ -21,6 +21,12 @@ section{
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
+section:hover{
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    background-color: #f25b57;
+}
+
 .product{
     display: flex;
     flex-direction: row;

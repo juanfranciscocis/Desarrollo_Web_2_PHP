@@ -44,6 +44,11 @@ input{
     padding: 0.2em;
 }
 
+input:hover{
+    transform: scale(1.01);
+    transition: transform 0.5s;
+}
+
 .small{
     width: 40%;
 }
@@ -72,6 +77,11 @@ input{
     background-color: #c02525;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.login-button:hover , .register-button:hover{
+    transform: scale(1.05);
+    transition: transform 0.5s;
 }
 
 h2{
